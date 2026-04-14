@@ -114,7 +114,6 @@ footer {
 </div>
 
 <nav>
-<button onclick="toggleMode()">🌙</button>
 <a href="#home">Home</a>
 <a href="#about">About</a>
 <a href="#facilities">Facilities</a>
@@ -130,7 +129,7 @@ footer {
 
 <section id="about">
 <h2>About School</h2>
-<p>Delhi Public School Knowledge Park V is a top CBSE school focused on academic excellence, discipline, and overall development.</p>
+<p>Delhi Public School Knowledge Park V is a premier CBSE-affiliated institution dedicated to academic excellence, discipline, and holistic development. The school provides a modern learning environment with smart classrooms, advanced laboratories, a well-stocked library, and excellent sports facilities. It focuses on nurturing students intellectually, physically, and morally, helping them grow into confident and responsible individuals. With experienced faculty and a strong emphasis on values, creativity, and innovation, DPS KP-V prepares students to face future challenges and become successful leaders.</p>
 </section>
 
 <section id="facilities">
@@ -139,6 +138,7 @@ footer {
 <div class="card">Science Labs</div>
 <div class="card">Library</div>
 <div class="card">Sports Complex</div>
+<div class="card">Football Ground</div>
 </section>
 
 <section id="gallery">
@@ -176,11 +176,6 @@ footer {
 
 <script>
 
-/* DARK MODE */
-function toggleMode(){
-document.body.classList.toggle("light");
-}
-
 /* TYPING EFFECT */
 let text="Shaping Future Leaders...";
 let i=0;
@@ -202,8 +197,8 @@ i++;
 if(i>end) clearInterval(interval);
 },20);
 }
-count("c1",3000);
-count("c2",150);
+count("c1",1,121);
+count("c2",143);
 count("c3",50);
 
 /* FORM */
