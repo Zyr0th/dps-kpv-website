@@ -5,19 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior:smooth; }
 
 body {
   margin:0;
-  font-family: Arial;
+  font-family:Arial;
   background:#0f172a;
   color:white;
   transition:0.3s;
 }
 
-/* NAVBAR */
+/* NAV */
 nav {
   background:#1e293b;
   padding:15px;
@@ -44,48 +42,25 @@ button {
 .hero {
   height:90vh;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
-  text-align:center;
+  flex-direction:column;
   background:linear-gradient(to right,#1e3a8a,#9333ea);
 }
-.hero h1 {
-  font-size:50px;
-}
-.hero p {
-  font-size:20px;
-}
 
-/* BUTTON */
-.btn {
-  margin-top:20px;
-  padding:12px 25px;
-  background:#3b82f6;
-  border-radius:5px;
-  text-decoration:none;
-  color:white;
-}
-
-/* SECTIONS */
-section {
-  padding:50px;
-  text-align:center;
-}
+/* SECTION */
+section { padding:50px; text-align:center; }
 
 /* CARDS */
 .card {
   background:#1e293b;
-  margin:15px;
   padding:20px;
-  border-radius:10px;
+  margin:10px;
   display:inline-block;
-  width:250px;
+  border-radius:10px;
   transition:0.3s;
 }
-.card:hover {
-  transform:scale(1.1);
-}
+.card:hover { transform:scale(1.1); }
 
 /* GALLERY */
 .img {
@@ -94,91 +69,128 @@ section {
   border-radius:10px;
   transition:0.3s;
 }
-.img:hover {
-  transform:scale(1.1);
+.img:hover { transform:scale(1.1); }
+
+/* COUNTERS */
+.counter {
+  font-size:40px;
+  font-weight:bold;
 }
 
-/* LIGHT MODE */
-.light {
-  background:white;
-  color:black;
+/* FORM */
+input, textarea {
+  padding:10px;
+  margin:10px;
+  width:200px;
+  border-radius:5px;
+  border:none;
 }
-.light nav {
-  background:#ddd;
+
+/* NOTICE */
+.notice {
+  background:red;
+  padding:10px;
 }
-.light .card {
-  background:#eee;
-}
+
+/* LIGHT */
+.light { background:white; color:black; }
+.light nav { background:#ddd; }
+.light .card { background:#eee; }
 
 /* FOOTER */
-footer {
-  background:#1e293b;
-  padding:20px;
-  text-align:center;
-}
+footer { background:#1e293b; padding:20px; }
 </style>
 </head>
 
 <body>
 
+<div class="notice">
+<marquee>Admissions Open | Sports Day Coming Soon | Welcome to DPS KP-V</marquee>
+</div>
+
 <nav>
-  <button onclick="toggleMode()">🌙</button>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#facilities">Facilities</a>
-  <a href="#gallery">Gallery</a>
+<button onclick="toggleMode()">🌙</button>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#stats">Stats</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="hero" id="home">
-  <h1>DPS Knowledge Park V</h1>
-  <p id="typing"></p>
-  <a href="#about" class="btn">Explore</a>
+<h1>DPS Knowledge Park V</h1>
+<p id="typing"></p>
 </div>
 
 <section id="about">
-  <h2>About School</h2>
-  <p>DPS KP-V is a leading CBSE school focused on academic excellence and overall development.</p>
+<h2>About</h2>
+<p>One of the best CBSE schools focusing on excellence.</p>
 </section>
 
-<section id="facilities">
-  <h2>Facilities</h2>
-
-  <div class="card">Smart Classrooms</div>
-  <div class="card">Science Labs</div>
-  <div class="card">Sports Complex</div>
-
+<section id="stats">
+<h2>Our Achievements</h2>
+<div class="counter" id="c1">0</div> Students<br>
+<div class="counter" id="c2">0</div> Teachers<br>
+<div class="counter" id="c3">0</div> Awards<br>
 </section>
 
 <section id="gallery">
-  <h2>Gallery</h2>
+<h2>Gallery</h2>
+<img src="https://picsum.photos/300?1" class="img">
+<img src="https://picsum.photos/300?2" class="img">
+<img src="https://picsum.photos/300?3" class="img">
+</section>
 
-  <img src="https://picsum.photos/300?1" class="img">
-  <img src="https://picsum.photos/300?2" class="img">
-  <img src="https://picsum.photos/300?3" class="img">
+<section id="contact">
+<h2>Contact Us</h2>
+<input placeholder="Name"><br>
+<input placeholder="Email"><br>
+<textarea placeholder="Message"></textarea><br>
+<button onclick="submitForm()">Send</button>
+<p id="msg"></p>
 
+<h3>Location</h3>
+<iframe src="https://maps.google.com/maps?q=Delhi%20Public%20School%20Knowledge%20Park%20V&t=&z=13&ie=UTF8&iwloc=&output=embed" width="300" height="200"></iframe>
 </section>
 
 <footer>
-  <p>© DPS KP-V Website Project</p>
+<p>© DPS KP-V Project</p>
 </footer>
 
 <script>
-function toggleMode() {
-  document.body.classList.toggle("light");
+function toggleMode(){
+document.body.classList.toggle("light");
 }
 
-/* TYPING EFFECT */
-let text = "Shaping Future Leaders...";
-let i = 0;
-
-function type() {
-  if (i < text.length) {
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 50);
-  }
+/* typing */
+let text="Shaping Future Leaders...";
+let i=0;
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,50);
+}
 }
 type();
+
+/* counters */
+function count(id, end){
+let i=0;
+let interval=setInterval(()=>{
+document.getElementById(id).innerHTML=i;
+i++;
+if(i>end) clearInterval(interval);
+},20);
+}
+count("c1",3000);
+count("c2",150);
+count("c3",50);
+
+/* form */
+function submitForm(){
+document.getElementById("msg").innerHTML="Message Sent!";
+}
 </script>
 
 </body>
